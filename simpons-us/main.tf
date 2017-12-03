@@ -11,7 +11,7 @@ resource "aws_instance" "simpsons_box" {
     key_name = "myfirstkey"
 
     tags {
-        Name = "simpsons_box"
+        Name = "simpsons_box_CA"
     }
 
     # add a wait for this to be able to RDP
