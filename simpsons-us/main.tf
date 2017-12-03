@@ -1,6 +1,6 @@
 provider "aws" {
-  alias  = "${var.region_alias}"
-  region = "${var.region}"
+  alias  = "east1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "simpsons_box" {
@@ -11,7 +11,7 @@ resource "aws_instance" "simpsons_box" {
     key_name = "myfirstkey"
 
     tags {
-        Name = "simpsons_box_CA"
+        Name = "simpsons_box"
     }
 
     # add a wait for this to be able to RDP
