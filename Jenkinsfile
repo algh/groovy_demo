@@ -22,7 +22,7 @@ node {
                 git url: repoURL, branch: branch
             }
         }
-        stage ('plan simpsons') {
+        stage ('deploy simpsons') {
             parallel(
                 canada: { 
                     dir ("$workspace/simpsons-ca") {
