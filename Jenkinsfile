@@ -19,9 +19,9 @@ node {
             parallel(
                 canada: { 
                     dir ("$workspace/simpsons-ca") {
-                        sh '~bin/terraform init'
-                        sh '~bin/terraform plan'
-                        sh '~bin/terraform apply -auto-approve'
+                        sh '~/bin/terraform init'
+                        sh '~/bin/terraform plan'
+                        sh '~/bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
                         sh "git push origin $branch"
@@ -29,9 +29,9 @@ node {
                 },
                 us: {
                     dir ("$workspace/simpsons-us") {
-                        sh '~bin/terraform init'
-                        sh '~bin/terraform plan'
-                        sh '~bin/terraform apply -auto-approve'
+                        sh '~/bin/terraform init'
+                        sh '~/bin/terraform plan'
+                        sh '~/bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
                         sh "git push origin $branch"
