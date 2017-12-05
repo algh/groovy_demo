@@ -16,11 +16,13 @@ node {
             parallel(
                 canada: { 
                     dir ("$workspace/simpsons-ca") {
+                        sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
                     }
                 },
                 us: {
                     dir ("$workspace/simpsons-us") {
+                        sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
                     }
                 }
