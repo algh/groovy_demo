@@ -6,6 +6,7 @@ node {
         env.AWS_ACCESS_KEY_ID = "$AWS_ACCESS_KEY"
         env.AWS_SECRET_ACCESS_KEY = "$AWS_SECRET_KEY"
         println "current workspace: $workspace"
+        def branch = null
         stage ('git checkout') {
             dir(workspace) {
                 repoURL = scm.getUserRemoteConfigs()[0].getUrl()
@@ -20,12 +21,20 @@ node {
                     dir ("$workspace/simpsons-ca") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
+                        sh '~/bin/terraform apply'
+                        sh 'git add terraform.tfstate'
+                        sh 'git commit -am "terraform state file"'
+                        sh "git push origin $branch"
                     }
                 },
                 us: {
                     dir ("$workspace/simpsons-us") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
+                        sh '~/bin/terraform apply'
+                        sh 'git add terraform.tfstate'
+                        sh 'git commit -am "terraform state file"'
+                        sh "git push origin $branch"
                     }
                 }
             )
