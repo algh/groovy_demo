@@ -16,12 +16,12 @@ node {
             parallel(
                 canada: { 
                     dir ("$workspace/simpsons-ca") {
-                        sh 'terraform plan'
+                        sh '~/bin/terraform plan'
                     }
                 },
                 us: {
                     dir ("$workspace/simpsons-us") {
-                        sh 'terraform plan'
+                        sh '~/bin/terraform plan'
                     }
                 }
             )
