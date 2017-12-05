@@ -23,6 +23,7 @@ node {
                     dir ("$workspace/simpsons-us") {
                         sh 'terraform plan'
                     }
+                }
             )
         }
     }
