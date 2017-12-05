@@ -3,8 +3,8 @@ node {
     withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: "${userCredentials}",
                     usernameVariable: 'AWS_ACCESS_KEY', passwordVariable: 'AWS_SECRET_KEY']]) {
         // some block
-        env.AWS_ACCESS_KEY_ID = "$AWS_ACCESS_KEY_ID"
-        env.AWS_SECRET_ACCESS_KEY = "$AWS_SECRET_ACCESS_KEY"
+        env.AWS_ACCESS_KEY_ID = "$AWS_ACCESS_KEY"
+        env.AWS_SECRET_ACCESS_KEY = "$AWS_SECRET_KEY"
         println "current workspace: $workspace"
         stage ('git checkout') {
             dir(workspace) {
