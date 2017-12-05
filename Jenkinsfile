@@ -32,7 +32,7 @@ node {
                             sh '~/bin/terraform apply -auto-approve'
                         }
                         if (params.cleanup) {
-                            sh '~/bin/terraform destroy -auto-approve'
+                            sh '~/bin/terraform destroy  -force'
                         }
                         sh 'git add terraform.tfstate'
                         try {
@@ -52,7 +52,7 @@ node {
                             sh '~/bin/terraform apply -auto-approve'
                         }
                         if (params.cleanup) {
-                            sh '~/bin/terraform destroy -auto-approve'
+                            sh '~/bin/terraform destroy -force'
                         }
                         sh 'git add terraform.tfstate'
                         try {
