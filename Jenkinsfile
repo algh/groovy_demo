@@ -8,8 +8,9 @@ node {
 
 
          properties([parameters([
-             booleanParam(defaultValue: false, description: '', name: 'cleanup'),
+             booleanParam(defaultValue: false, description: '', name: 'cleanup')
             ])
+
         println "current workspace: $workspace"
         def branch = null
         stage ('git checkout') {
