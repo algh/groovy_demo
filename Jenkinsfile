@@ -28,7 +28,12 @@ node {
                     dir ("$workspace/simpsons-ca") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
-                        sh '~/bin/terraform apply -auto-approve'
+                        if (params.apply) {
+                            sh '~/bin/terraform apply -auto-approve'
+                        }
+                        if (params.cleanup) {
+                            sh '~/bin/terraform destroy -auto-approve'
+                        }
                         sh 'git add terraform.tfstate'
                         try {
                             sh 'git commit -am "terraform state file"'
@@ -43,7 +48,12 @@ node {
                     dir ("$workspace/simpsons-us") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
-                        sh '~/bin/terraform apply -auto-approve'
+                        if (params.apply) {
+                            sh '~/bin/terraform apply -auto-approve'
+                        }
+                        if (params.cleanup) {
+                            sh '~/bin/terraform destroy -auto-approve'
+                        }
                         sh 'git add terraform.tfstate'
                         try {
                             sh 'git commit -am "terraform state file"'
