@@ -21,7 +21,7 @@ node {
                     dir ("$workspace/simpsons-ca") {
                         sh '~bin/terraform init'
                         sh '~bin/terraform plan'
-                        sh '~bin/terraform apply'
+                        sh '~bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
                         sh "git push origin $branch"
@@ -31,7 +31,7 @@ node {
                     dir ("$workspace/simpsons-us") {
                         sh '~bin/terraform init'
                         sh '~bin/terraform plan'
-                        sh '~bin/terraform apply'
+                        sh '~bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
                         sh "git push origin $branch"
