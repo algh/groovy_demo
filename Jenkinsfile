@@ -25,7 +25,12 @@ node {
                         sh '~/bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
-                        sh "git push origin $branch"
+                        try {
+                            sh "git push origin $branch"
+                        }
+                        catch (Exception e) {
+                            // do nothing
+                        }
                     }
                 },
                 us: {
@@ -35,7 +40,12 @@ node {
                         sh '~/bin/terraform apply -auto-approve'
                         sh 'git add terraform.tfstate'
                         sh 'git commit -am "terraform state file"'
-                        sh "git push origin $branch"
+                        try {
+                            sh "git push origin $branch"
+                        }
+                        catch (Exception e) {
+                            // do nothing
+                        }
                     }
                 }
             )
