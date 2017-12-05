@@ -3,7 +3,7 @@ node {
         // some block
         env.AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY_ID
         env.AWS_SECRET_ACCESS_KEY = AWS_SECRET_ACCESS_KEY
-
+        println "current workspace: $workspace"
         stage ('git checkout') {
             dir(workspace) {
                 repoURL = scm.getUserRemoteConfigs()[0].getUrl()
