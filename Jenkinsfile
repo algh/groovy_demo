@@ -24,6 +24,7 @@ node {
                     dir ("$workspace/simpsons-ca") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
+                        sh 'aws --version'
                         // sh '~/bin/terraform apply -auto-approve'
                         // sh 'git add terraform.tfstate'
                         // sh 'git commit -am "terraform state file"'
