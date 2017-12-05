@@ -7,7 +7,7 @@ resource "aws_instance" "simpsons_box" {
     ami =  "${var.ami}"
     instance_type = "m4.xlarge"
     provider = "aws.east1"
-    vpc_security_group_ids = ["sg-1063a36c"]
+    vpc_security_group_ids = ["sg-1063a36c","sg-7611960d"]
     key_name = "myfirstkey"
 
     tags {
