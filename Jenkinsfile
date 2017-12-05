@@ -5,7 +5,7 @@ node {
         // some block
         env.AWS_ACCESS_KEY_ID = "$AWS_ACCESS_KEY"
         env.AWS_SECRET_ACCESS_KEY = "$AWS_SECRET_KEY"
-        
+
         println "current workspace: $workspace"
         def branch = null
         stage ('git checkout') {
@@ -22,20 +22,21 @@ node {
                     dir ("$workspace/simpsons-ca") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
-                        sh '~/bin/terraform apply -auto-approve'
-                        sh 'git add terraform.tfstate'
-                        sh 'git commit -am "terraform state file"'
-                        sh "git push origin $branch"
+                        sh 'aws --version'
+                        // sh '~/bin/terraform apply -auto-approve'
+                        // sh 'git add terraform.tfstate'
+                        // sh 'git commit -am "terraform state file"'
+                        // sh "git push origin $branch"
                     }
                 },
                 us: {
                     dir ("$workspace/simpsons-us") {
                         sh '~/bin/terraform init'
                         sh '~/bin/terraform plan'
-                        sh '~/bin/terraform apply -auto-approve'
-                        sh 'git add terraform.tfstate'
-                        sh 'git commit -am "terraform state file"'
-                        sh "git push origin $branch"
+                        // sh '~/bin/terraform apply -auto-approve'
+                        // sh 'git add terraform.tfstate'
+                        // sh 'git commit -am "terraform state file"'
+                        // sh "git push origin $branch"
                     }
                 }
             )
