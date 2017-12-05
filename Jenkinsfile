@@ -9,7 +9,7 @@ node {
                 repoURL = scm.getUserRemoteConfigs()[0].getUrl()
                 branch = scm.branches[0].name.replace("*/","").trim()
                 println "branch: ${branch}"
-                git url: repoURL, credentialsId: userCredentials, branch: branch
+                git url: repoURL, branch: branch
             }
         }
         stage ('plan simpsons') {
