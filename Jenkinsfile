@@ -6,10 +6,11 @@ node {
         env.AWS_ACCESS_KEY_ID = "$AWS_ACCESS_KEY"
         env.AWS_SECRET_ACCESS_KEY = "$AWS_SECRET_KEY"
 
-properties([parameters([
-                booleanParam(defaultValue: false, description: '', name: 'cleanup')
-                ]),
-            ])
+        properties([parameters([
+                        booleanParam(defaultValue: false, description: '', name: 'apply'),
+                        booleanParam(defaultValue: false, description: '', name: 'cleanup')
+                        ]),
+                    ])
 
         println "current workspace: $workspace"
         def branch = null
