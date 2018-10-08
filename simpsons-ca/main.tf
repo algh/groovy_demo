@@ -7,7 +7,7 @@ resource "aws_instance" "simpsons_box" {
     ami =  "${var.ami}"
     instance_type = "m4.xlarge"
     provider = "aws.canada-1"
-    vpc_security_group_ids = ["sg-06fe7a1ab40c83dd2","sg-096402f22de7d1b6e","sg-524f0b2a"]
+    vpc_security_group_ids = ["sg-0dd10f4268adccd87","sg-035dc4cc634f32a01","sg-59c66430"]
     key_name = "key_CAN"
 
     tags {
