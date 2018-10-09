@@ -8,7 +8,7 @@ resource "aws_instance" "simpsons_box" {
     instance_type = "m4.xlarge"
     provider = "aws.canada-1"
     vpc_security_group_ids = ["sg-0dd10f4268adccd87","sg-035dc4cc634f32a01","sg-59c66430"]
-    key_name = "key_CAN"
+    key_name = "IFS_CAN"
 
     tags {
         Name = "simpsons_box_ca"
