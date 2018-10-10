@@ -9,6 +9,7 @@ resource "aws_instance" "simpsons_box" {
     provider = "aws.east1"
     vpc_security_group_ids = ["sg-06fe7a1ab40c83dd2","sg-096402f22de7d1b6e","sg-524f0b2a"]
     key_name = "IFS"
+    get_password_data = "true"
 
     tags {
         Name = "simpsons_box"
